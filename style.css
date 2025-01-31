@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+#typing-text {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 2rem auto;
+    max-width: 400px;
+    font-size: 2rem;
+}
+
+.grid div {
+    padding: 10px;
+    border: 1px solid #00ff00;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.grid div:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.grid div.clicked {
+    background-color: rgba(0, 255, 0, 0.3);
+    transform: scale(0.95);
+}
+
+#input-section {
+    margin-top: 2rem;
+}
+
+#answer-input {
+    background: transparent;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    width: 300px;
+    margin-right: 10px;
+    outline: none;
+}
+
+#submit-btn {
+    background: transparent;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    content: 'ENVIAR';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    color: #00ff00;
+    padding: 10px 20px;
+}
+
+.glitch-effect::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff0000;
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+    left: -2px;
+    text-shadow: 2px 0 #0000ff;
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(80% 0 0 0); }
+    100% { clip-path: inset(0 0 80% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(0 80% 0 0); }
+    100% { clip-path: inset(0 0 0 80%); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+#message {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
